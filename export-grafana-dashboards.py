@@ -28,6 +28,14 @@ auth            = {
     }
 
 
+#snoop for more evironment vars:
+
+try:
+    sourceHost  = os.environ['SOURCEHOST']
+    destHost    = os.environ['DESTHOST']
+except Exception, e:
+    print "couldn't find host/dest in the environment variables: {0}\nUsing default values".format(e)
+
 #lets search the source for all dashboards:
 source = requests.get('{0}/api/search/?query='.format(sourceHost),headers=auth['source'])
 dashboards =  source.json()
@@ -59,7 +67,7 @@ pbar.finish()
 
 #we now have all the dashboards (we hope)
 #lets start pushing them into the destination grafana server
-print "Uploading dashboards to destination Grafana instance"
+print "\n\nUploading dashboards to destination Grafana instance"
 pbar = progressbar.ProgressBar(widgets=[progressbar.Percentage(), progressbar.Bar()],maxval=len(dashboards)).start()
 i = 0
 for dashboard in dashboardToUpload:
