@@ -9,7 +9,9 @@ First you'll need to install progress bar:
 ```bash
 pip install progressbar
 ```
-Once you have that, you'll need to generate some API keys in grafana: ![Screenshot of API location](http://docs.grafana.org/img/v2/orgdropdown_api_keys.png) 
+Once you have that, you'll need to generate some API keys in grafana: 
+
+![Screenshot of API location](http://docs.grafana.org/img/v2/orgdropdown_api_keys.png) 
 The Source will only require viewing access, the destination will need editor or above.
 
 # Passing Keys and hostnames to the script
